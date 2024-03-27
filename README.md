@@ -5,3 +5,4 @@
 ![Snipaste_2024-03-27_11-21-41](https://github.com/Robot-Yue/CAN_Motor/assets/103190998/9897d2ed-4fac-4d1b-bbea-971565d4f9a0)
 
 # 操作演示
+[B站演示视频](https://www.bilibili.com/video/BV1RJ4m177G1/?spm_id_from=333.999.list.card_archive.click&vd_source=9987e937e9154aaa6a7871491a523518)
