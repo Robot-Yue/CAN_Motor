@@ -1,3 +1,4 @@
+> 基于 Qt 的 CAN 电机调试上位机，可实现 CAN 电机启停、正反转、速度控制和位置控制等功能
 ## 实物接线图
 ![e69d635b8703a9eca64c394197b0bc3](https://github.com/Robot-Yue/CAN_Motor/assets/103190998/a2498101-8090-4091-948c-26e0f72955d0)
 
