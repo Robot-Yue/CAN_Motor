@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -9,8 +9,7 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -51,12 +50,12 @@ private slots:
 private:
     Ui::MainWindow *ui;
     CANThread *canthread;
-    QLabel * labelMessage;
+    QLabel *labelMessage;
 
-    QStringList strList;  //  定义这个来组织发送的命令字符串
-    void  CanDataSendout(QStringList list);
+    QStringList strList;  // 定义这个来组织发送的命令字符串
+    void CanDataSendout(QStringList list);
 
-    QString  command;
+    QString command;
     uint validData[8];
 };
 
