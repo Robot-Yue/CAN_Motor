@@ -1,10 +1,10 @@
 #ifndef CONTROLCAN_H
 #define CONTROLCAN_H
 
-////�ļ��汾��v2.01 20190410
-//#include <cvidef.h>	//ʹ��CVIƽ̨��������ʹ�ø���䡣
+////文件版本：v2.01 20190410
+//#include <cvidef.h>	//使用CVI平台开发，请使用该语句。
 
-//�ӿڿ����Ͷ���
+//接口卡类型定义
 
 #define VCI_USBCAN1		3
 #define VCI_USBCAN2		4
@@ -26,12 +26,12 @@
 #define INT     int
 
 
-//�������÷���״ֵ̬
+//函数调用返回状态值
 #define	STATUS_OK					1
 #define STATUS_ERR					0
 	
-/*------------------------------------------------����ZLG�ĺ�������������------------------------------------------------*/
-//1.ZLGCANϵ�нӿڿ���Ϣ���������͡�
+/*------------------------------------------------兼容ZLG的函数及数据类型------------------------------------------------*/
+//1.ZLGCAN系列接口卡信息的数据类型。
 typedef  struct  _VCI_BOARD_INFO{
 		USHORT	hw_Version;
 		USHORT	fw_Version;
@@ -46,20 +46,20 @@ typedef  struct  _VCI_BOARD_INFO{
 
 
 
-//2.����CAN��Ϣ֡���������͡�
+//2.定义CAN信息帧的数据类型。
 typedef  struct  _VCI_CAN_OBJ{
     UINT	ID;
     UINT	TimeStamp;
     BYTE	TimeFlag;
     BYTE	SendType;
-    BYTE	RemoteFlag;//�Ƿ���Զ��֡
-    BYTE	ExternFlag;//�Ƿ�����չ֡
+    BYTE	RemoteFlag;//是否是远程帧
+    BYTE	ExternFlag;//是否是扩展帧
     BYTE	DataLen;
     BYTE	Data[8];
     BYTE	Reserved[3];
 }VCI_CAN_OBJ,*PVCI_CAN_OBJ;
 
-//3.�����ʼ��CAN����������
+//3.定义初始化CAN的数据类型
 typedef struct _VCI_INIT_CONFIG{
 	DWORD	AccCode;
 	DWORD	AccMask;
@@ -72,7 +72,7 @@ typedef struct _VCI_INIT_CONFIG{
 
 ///////// new add struct for filter /////////
 typedef struct _VCI_FILTER_RECORD{
-	DWORD ExtFrame;	//�Ƿ�Ϊ��չ֡
+	DWORD ExtFrame;	//是否为扩展帧
 	DWORD Start;
 	DWORD End;
 }VCI_FILTER_RECORD,*PVCI_FILTER_RECORD;
@@ -97,7 +97,7 @@ EXTERNC ULONG __stdcall VCI_Transmit(DWORD DeviceType,DWORD DeviceInd,DWORD CANI
 EXTERNC ULONG __stdcall VCI_Receive(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd,PVCI_CAN_OBJ pReceive,ULONG Len,INT WaitTime);
 
 
-/*------------------------------------------------�������亯�������ݽṹ����------------------------------------------------*/
+/*------------------------------------------------其他补充函数及数据结构描述------------------------------------------------*/
 
 
 #define EXTERNC		extern "C"
