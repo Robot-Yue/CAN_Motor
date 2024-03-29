@@ -30,15 +30,15 @@
 /*------------------------------------------------兼容ZLG的函数及数据类型------------------------------------------------*/
 // 1.ZLGCAN 系列接口卡信息的数据类型。
 typedef  struct  _VCI_BOARD_INFO {
-    USHORT	hw_Version;
-    USHORT	fw_Version;
-    USHORT	dr_Version;
-    USHORT	in_Version;
-    USHORT	irq_Num;
-    BYTE	can_Num;
-    CHAR	str_Serial_Num[20];
-    CHAR	str_hw_Type[40];
-    USHORT	Reserved[4];
+    USHORT hw_Version;
+    USHORT fw_Version;
+    USHORT dr_Version;
+    USHORT in_Version;
+    USHORT irq_Num;
+    BYTE   can_Num;
+    CHAR   str_Serial_Num[20];
+    CHAR   str_hw_Type[40];
+    USHORT Reserved[4];
 } VCI_BOARD_INFO, *PVCI_BOARD_INFO;
 
 // 2.定义 CAN 信息帧的数据类型。
@@ -68,8 +68,8 @@ typedef struct _VCI_INIT_CONFIG {
 ///////// new add struct for filter /////////
 typedef struct _VCI_FILTER_RECORD {
     DWORD ExtFrame;	 // 是否为扩展帧
-	DWORD Start;
-	DWORD End;
+    DWORD Start;
+    DWORD End;
 }VCI_FILTER_RECORD, *PVCI_FILTER_RECORD;
  
 #define EXTERNC	extern "C"
