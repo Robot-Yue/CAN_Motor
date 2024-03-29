@@ -5,7 +5,7 @@
 #include "ControlCAN.h"
 #include <QDebug>
 
-class CANThread:public QThread {
+class CANThread : public QThread {
     Q_OBJECT
 public:
     CANThread();

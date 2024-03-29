@@ -1,7 +1,7 @@
-﻿#ifndef CONTROLCAN_H
+﻿/* USB-CAN 模块厂商提供的函数包 */
+#ifndef CONTROLCAN_H
 #define CONTROLCAN_H
 
-////文件版本：v2.01 20190410
 //#include <cvidef.h>	// 使用 CVI 平台开发，请使用该语句。
 
 // 接口卡类型定义
@@ -28,8 +28,8 @@
 #define STATUS_ERR 0
 	
 /*------------------------------------------------兼容ZLG的函数及数据类型------------------------------------------------*/
-// 1.ZLGCAN 系列接口卡信息的数据类型。
-typedef  struct  _VCI_BOARD_INFO {
+// 1.ZLGCAN 系列接口卡信息的数据类型
+typedef struct _VCI_BOARD_INFO {
     USHORT hw_Version;
     USHORT fw_Version;
     USHORT dr_Version;
@@ -41,7 +41,7 @@ typedef  struct  _VCI_BOARD_INFO {
     USHORT Reserved[4];
 } VCI_BOARD_INFO, *PVCI_BOARD_INFO;
 
-// 2.定义 CAN 信息帧的数据类型。
+// 2.定义 CAN 信息帧的数据类型
 typedef struct _VCI_CAN_OBJ {
     UINT ID;
     UINT TimeStamp;
@@ -74,8 +74,13 @@ typedef struct _VCI_FILTER_RECORD {
  
 #define EXTERNC	extern "C"
 
+// VCI_OpenDevice() 函数功能：打开一个指定类型和索引的设备，并且根据函数的返回值来表示是否打开成功
+// DWORD：这是一个32位无符号整数的数据类型，通常在Windows编程中使用
+// __stdcall：是一种标准的 WinAPI 调用约定，在函数调用结束后由被调用函数来清理堆栈
 EXTERNC DWORD __stdcall VCI_OpenDevice(DWORD DeviceType,DWORD DeviceInd,DWORD Reserved);
+
 EXTERNC DWORD __stdcall VCI_CloseDevice(DWORD DeviceType,DWORD DeviceInd);
+
 EXTERNC DWORD __stdcall VCI_InitCAN(DWORD DeviceType, DWORD DeviceInd, DWORD CANInd, PVCI_INIT_CONFIG pInitConfig);
 
 EXTERNC DWORD __stdcall VCI_ReadBoardInfo(DWORD DeviceType,DWORD DeviceInd,PVCI_BOARD_INFO pInfo);
@@ -83,12 +88,15 @@ EXTERNC DWORD __stdcall VCI_ReadBoardInfo(DWORD DeviceType,DWORD DeviceInd,PVCI_
 EXTERNC DWORD __stdcall VCI_SetReference(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd,DWORD RefType,PVOID pData);
 
 EXTERNC ULONG __stdcall VCI_GetReceiveNum(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd);
+
 EXTERNC DWORD __stdcall VCI_ClearBuffer(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd);
 
 EXTERNC DWORD __stdcall VCI_StartCAN(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd);
+
 EXTERNC DWORD __stdcall VCI_ResetCAN(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd);
 
 EXTERNC ULONG __stdcall VCI_Transmit(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd,PVCI_CAN_OBJ pSend,ULONG Len);
+
 EXTERNC ULONG __stdcall VCI_Receive(DWORD DeviceType,DWORD DeviceInd,DWORD CANInd,PVCI_CAN_OBJ pReceive,ULONG Len,INT WaitTime);
 
 /*------------------------------------------------其他补充函数及数据结构描述------------------------------------------------*/

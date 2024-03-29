@@ -17,9 +17,9 @@ void CANThread::stop() {
 
 // 1.打开设备
 bool CANThread::openDevice(UINT deviceType, UINT debicIndex, UINT baundRate) {
-    m_deviceType = deviceType; /* USBCAN-2A 或 USBCAN-2C 或 CANalyst-II */
-    m_debicIndex = debicIndex; /* 第 1 个设备 */
-    m_baundRate = baundRate;
+    m_deviceType = deviceType; /* 设备类型：USBCAN-2A 或 USBCAN-2C 或 CANalyst-II */
+    m_debicIndex = debicIndex; /* 设备索引：第 1 个设备 */
+    m_baundRate = baundRate;   // 波特率
     unsigned int dwRel;
     dwRel = VCI_OpenDevice(m_deviceType, m_debicIndex, 0);
     if (dwRel != 1)

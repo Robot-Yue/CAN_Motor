@@ -21,7 +21,7 @@ signals:
     void getValidDatalist();
 
 private slots:
-    void onGetProtocolData(VCI_CAN_OBJ *vci,unsigned int dwRel,unsigned int channel);
+    void onGetProtocolData(VCI_CAN_OBJ *vci, unsigned int dwRel, unsigned int channel);
     void onBoardInfo(VCI_BOARD_INFO vbi);
     void on_pushButtonOpenCan_clicked();
 

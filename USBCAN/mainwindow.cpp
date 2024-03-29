@@ -59,7 +59,7 @@ void MainWindow::on_pushButtonOpenCan_clicked() {
     }
 }
 
-// 这是自子线程中  emit（GetProtocolDate）的槽函数，通过传参的方法，把子线程收到的 电机发回数据， 在主线程中得到，可以在这里做数据处理
+// 这是自子线程中 emit（GetProtocolDate）的槽函数，通过传参的方法，把子线程收到的电机发回数据，在主线程中得到，可以在这里做数据处理
 void MainWindow::onGetProtocolData(VCI_CAN_OBJ *vci, unsigned int dwRel, unsigned int channel) {
     QStringList messageList;
     QString str;
